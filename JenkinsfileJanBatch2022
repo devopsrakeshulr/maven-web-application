@@ -5,6 +5,8 @@ def mavenHome = tool name: "maven3.8.5"
  echo "The Job name is:  ${env.JOB_NAME} "
  echo "The Build number is:  ${env.BUILD_NUMBER} "
 
+properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '8', daysToKeepStr: '', numToKeepStr: '8')), [$class: 'JobLocalConfiguration', changeReasonComment: '']])
+
 //Checkout Stage
 stage('CheckoutCode'){
 git branch: 'development', credentialsId: '8a4c46c2-4497-41f8-8a73-bfe2967cebcc', url: 'https://github.com/rakesh-devops-janbatch/maven-web-application.git'
