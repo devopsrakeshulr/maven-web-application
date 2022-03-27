@@ -10,6 +10,7 @@ properties([[$class: 'JobLocalConfiguration', changeReasonComment: ''], pipeline
 
 //Checkout Stage
 stage('CheckoutCode'){
+buildName 'Dev- ${env.BUILD_NUMBER}'
 git branch: 'development', credentialsId: '8a4c46c2-4497-41f8-8a73-bfe2967cebcc', url: 'https://github.com/rakesh-devops-janbatch/maven-web-application.git'
 }
 
